@@ -1,0 +1,24 @@
+def findcommonproducts(shops):
+    commonproducts = set.intersection(*shops)
+
+    if len(commonproducts) == 0:
+        shop_lists = [list(shop) for shop in shops]
+        print("Перетворено на списки:", shop_lists)
+
+        return set()
+    return commonproducts
+
+
+m = int(input("Введіть кількість магазинів: "))
+
+shops = []
+for i in range(m):
+    products = set(input(f"Введіть товари для магазину {i + 1} через пробіл: ").split())
+    shops.append(products)
+
+commonproducts = findcommonproducts(shops)
+
+if commonproducts:
+    print("Спільні товари в усіх магазинах:", commonproducts)
+else:
+    print("Немає спільних товарів в усіх магазинах.")
