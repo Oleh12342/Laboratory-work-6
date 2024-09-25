@@ -1,0 +1,22 @@
+def findsurroundingelements(lst, element):
+    try:
+        index = lst.index(element)
+
+        previous = lst[index - 1] if index - 1 >= 0 else None
+        next_ = lst[index + 1] if index + 1 < len(lst) else None
+
+        return previous, next_
+    except ValueError:
+        return None, None
+
+
+lst = list(map(int, input("Введіть елементи списку через пробіл: ").split()))
+
+element = int(input("Введіть елемент, для якого потрібно знайти оточуючі елементи: "))
+
+previous, next_ = findsurroundingelements(lst, element)
+
+if previous is None and next_ is None:
+    print("Заданого елемента немає в списку або він єдиний.")
+else:
+    print(f"Попередній елемент: {previous}, Наступний елемент: {next_}")
